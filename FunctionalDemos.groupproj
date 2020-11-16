@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5BB8FF2E-91C5-4B56-BB8D-E35CA52E2D6E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BasicConcepts.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ImperativeDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SomewhatFunctionalDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FunctionalDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BasicConcepts">
+        <MSBuild Projects="BasicConcepts.dproj"/>
+    </Target>
+    <Target Name="BasicConcepts:Clean">
+        <MSBuild Projects="BasicConcepts.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BasicConcepts:Make">
+        <MSBuild Projects="BasicConcepts.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ImperativeDemo">
+        <MSBuild Projects="ImperativeDemo.dproj"/>
+    </Target>
+    <Target Name="ImperativeDemo:Clean">
+        <MSBuild Projects="ImperativeDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ImperativeDemo:Make">
+        <MSBuild Projects="ImperativeDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SomewhatFunctionalDemo">
+        <MSBuild Projects="SomewhatFunctionalDemo.dproj"/>
+    </Target>
+    <Target Name="SomewhatFunctionalDemo:Clean">
+        <MSBuild Projects="SomewhatFunctionalDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SomewhatFunctionalDemo:Make">
+        <MSBuild Projects="SomewhatFunctionalDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FunctionalDemo">
+        <MSBuild Projects="FunctionalDemo.dproj"/>
+    </Target>
+    <Target Name="FunctionalDemo:Clean">
+        <MSBuild Projects="FunctionalDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FunctionalDemo:Make">
+        <MSBuild Projects="FunctionalDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BasicConcepts;ImperativeDemo;SomewhatFunctionalDemo;FunctionalDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BasicConcepts:Clean;ImperativeDemo:Clean;SomewhatFunctionalDemo:Clean;FunctionalDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BasicConcepts:Make;ImperativeDemo:Make;SomewhatFunctionalDemo:Make;FunctionalDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
